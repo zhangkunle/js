@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .fa {
+        position: relative;
+        margin-left: 30px;
+        width: 300px;
+        height: 300px;
+        background-color: red;
+      }
+
+      .son {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        top: 10px;
+        left: 20px;
+        background-color: aquamarine;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="fa">
+      hhhh
+      <div class="son">反反复复</div>
+    </div>
+    <script>
+      // let div=document.querySelector('.son')
+      // console.log(div.parentElement.parentElement.parentElement.nodeName);
+      // console.log(div.parentNode.parentNode.parentNod.nodeName);
+      console.log(document.documentElement.clientWidth);
+      console.log(document.documentElement.offsetWidth);
+      console.log(document.querySelector(".fa").clientWidth);
+      console.log(document.querySelector(".fa").offsetWidth);
+      console.log(window.innerWidth);
+      console.log(document.querySelector(".fa").offsetLeft);
+      console.log(document.querySelector(".son").offsetWidth);
+      console.log(document.querySelector(".son").offsetLeft);
+      console.log(document.querySelector(".son").clientWidth);
+      console.log('kddehfgi'.substring(0,4));
+    </script>
+  </body>
+</html>

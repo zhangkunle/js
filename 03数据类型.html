@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>数据类型</title>
+</head>
+<body>
+    <script>
+        console.log(null === null );//true
+        console.log(undefined === undefined);//true
+        console.log(null === undefined);//false
+        console.log('1'+1); //11
+        console.log(1+'1'); //11
+        console.log(typeof Array(1,2,3));
+        console.log(new Number(1));
+        console.log(typeof(class c{}));  //'function'
+        console.log( typeof NaN); //number
+        console.log(NaN === NaN);//false
+        console.log(null == undefined);//true
+        console.log(null === undefined);//false
+
+        console.log(new Number(1) instanceof Number);//true
+
+
+
+        
+
+        function Egg(){
+            console.log(11);
+        }
+        const e=new Egg()
+        console.log(e.__proto__ === Egg.prototype); //true
+        console.log(e.__proto__ === Egg); //false
+
+        function C () {}
+function D () {}
+// 实例化一个 o 对象
+var o = new C()
+// true，true --> C.prototype 在 o 的原型链上
+console.log(o instanceof C, o.__proto__ === C.prototype, '此时 o 的 __proto__：', o.__proto__, '此时 C 的 prototype：', C.prototype)
+C.prototype = {}
+// 实例化一个 o2 对象
+var o2 = new C()
+// true --> C.prototype 在 o2 的原型链上
+console.log(o2 instanceof C)
+// false，C.prototype 指向了一个空对象,这个空对象不在 o 的原型链上.
+console.log(o instanceof C)
+console.log(D.prototype);
+
+    </script>
+</body>
+</html>

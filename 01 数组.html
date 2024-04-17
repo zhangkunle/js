@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button id="btn" type="button">点我</button>
+    <script>
+        let obj1 = {
+            name: '张三',
+            getName() {
+                return this.name;
+            }
+        }
+
+        let obj2 = {
+            name: '李四',
+            getName() {
+                return super.getName();
+            }
+        }
+
+        Object.setPrototypeOf(obj2, obj1);
+        console.log(obj2.getName());
+
+        var nums = [2, 3, 4, 5, 6, 7]
+        nums.push(0)
+        nums.pop()
+        console.log(nums) // [2, 3, 4, 5, 6, 7]
+
+        document.getElementById("btn").addEventListener('click', function () {
+            console.log('hello')
+        })
+        document.getElementById("btn").addEventListener('click', function () {
+            console.log('hello nowcoder')
+        })
+
+        const p = Promise.resolve(935);
+        p.then(
+            (val) => { return val; }
+        )
+            .then((val) => {
+                console.log(val);//935
+                return new Promise((res, rej) => {
+                    res(++val);//936
+                });
+            })
+            .then((val) => {
+                console.log(val);
+                return new Promise((res, rej) => {
+                    setTimeout(() => {
+                        res(++val);
+                        console.log('1111');
+                    }, 1000);
+                });
+            })
+            .then((val) => {
+                console.log(val);//937
+            });
+        //935、936、1111、937
+
+        let e = 1
+        console.log(e++); //2
+        console.log(++e);//3
+
+        const [a, b] = '123';
+        const { c, d } = '123';
+        console.log(a);
+        console.log(b);
+        console.log(c);
+        console.log(d);
+
+        console.log('@@@', 'jhu' === 'jhu');
+
+
+        val = 'smtg';
+        console.log('Value is ' + (val === 'smtg') ? 'Something' : 'Nothing');
+
+        function Person() {
+            console.log('lll');
+        }
+        const per = new Person()
+        console.log('per', per.constructor);
+        console.log('pers', Person.constructor);
+
+        var end = Math.pow(2, 50)
+        console.log('end', end);
+
+        let oldValue = 2;
+        let newValue = oldValue << 3;
+        console.log('newValue', newValue);
+
+
+        var end = Math.pow(2, 50)
+        var start = end - 100
+        var count = 0
+        for (var i = start; i <= end; i++) {
+            ++count
+        }
+        console.log(count)
+        console.log(count);
+    </script>
+</body>
+
+</html>

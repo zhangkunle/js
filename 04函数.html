@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>函数</title>
+</head>
+
+<body>
+    <script>
+        function sum() {
+            return 1 + 1
+        }
+        let t = function sum() {
+            return 2
+        }
+        const g = new Function('return 1')
+        console.log('jjj', g);//返回一个函数
+        console.log(typeof +'123');//number
+        console.log(typeof (1 + '123'));//string
+
+        // console.log(null.toString());//error
+        // console.log(undefined.toString());//error
+        console.log([1, 2].toString());//1,2
+        console.log({ a: '1', b: 'w' }.toString());//[Object,object]
+
+        //创建对象方法一：对象字面量
+        let x = { a: '1', b: '2' }
+        x.age = 11
+        console.log(x);
+        //方法二：构造函数
+        function Obj(name, age) {
+            this.name = name
+            this.age = age
+            this.eat = function () {
+                console.log('111');
+            }
+        }
+        const obj = new Obj('张三', 12)
+        obj.eat()
+        console.log(obj);
+
+        //方法三 new Object()
+        const Objx=new Object()
+        Objx.age=10;
+        Objx.gh=function(){
+            alert(11)
+        }
+        Objx.gh()
+        //方法四 原型对象的方式
+        function Dog(){
+
+        }
+        Dog.prototype.name='旺财'
+        Dog.prototype.age=12
+        Dog.prototype.gg=function(){
+            alert(999)
+        }
+        const dog=new Dog()
+        dog.gg()
+
+        function getDetail(name){
+            console.log(arguments.callee);
+        }
+        getDetail('gg')
+
+    </script>
+</body>
+
+</html>

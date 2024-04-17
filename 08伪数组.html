@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>伪数组</title>
+</head>
+
+<body>
+    <div>
+        <ul>
+            <li>1</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+    </div>
+    <script>
+        let arr = document.querySelectorAll('li')
+        console.log(arr);
+        console.log(Array.from(arr));
+        console.log(Array.of(1, 2, 3));//[1,2,3]
+        console.log(Array.prototype);
+        console.log(Array.prototype.slice === '[]');//false
+        console.log([].slice.call(arr));
+        console.log(Array.prototype.slice.call(arr));
+
+        Array.prototype.slice = function (start, end) {
+            console.log(this.length);
+            let result = new Array()
+            start = start || 0
+            end = end || this.length
+            for (let i = start; i < end; i++) {
+                result.push(this[i])
+            }
+            return result
+        }
+
+
+        let g = Array.prototype.slice.call([1, 2, 3, 4, 5, 6, 7, 8, 8, 9, 4, 3])
+        console.log(g);
+
+
+        let hh = Object.create({
+            a: '季节',
+            b: '收藏',
+            c: 'aa'
+        },//在原型__proto__上添加属性
+            {
+                'l': {
+                    value: '1111'
+                },
+                'w': {
+                    value: '222'
+                }//在生成的对象实例上面添加属性
+            });
+        console.log(hh);
+        console.log(hh.__proto__);
+
+
+
+       
+    </script>
+</body>
+
+</html>
